@@ -22,8 +22,8 @@ export class CarsController {
   }
 
   @Get(':id') // http://localhost:3000/api/v1/cars/:id
-  getCarById(@Param('id', ParseIntPipe) id: string) {
-    return this.carsService.findOneById(+id);
+  getCarById(@Param('id', ParseIntPipe) id: number) {
+    return this.carsService.findOneById(id);
   }
 
   @Post()
@@ -39,8 +39,7 @@ export class CarsController {
   @Delete() // http://localhost:3000/cars/:id
   deleteCar(@Param('id', ParseIntPipe) id: string) {
     return {
-      method:"delete"
-      +id
+      method: 'delete' + id,
     };
   }
 }
